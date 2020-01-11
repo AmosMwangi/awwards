@@ -11,23 +11,10 @@ from .serializer import ProfileSerializer,ProjectSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 
-def convert_dates(dates):
-    # function that gets the weekday number for the date.
-    day_number = dt.date.weekday(dates)
 
-    days = ['Monday','Tuesday','Wednesday','thursday','Friday','Saturday','Sunday']
-    '''
-    Returns the actual day of the week
-    '''
-    day = days[day_number]
-    return day
-
-# Create your views here.
-# @login_required(login_url='/accounts/login')
 def home_page(request):
     date = dt.date.today()
     project = Project.objects.all()
-    # profile = User.objects.get(username=request.user)
     return render(request,'home.html',locals())
 
 @login_required(login_url='/accounts/login')
@@ -64,7 +51,6 @@ def search_results(request):
 def profile(request, username):
     projo = Project.objects.all()
     profile = User.objects.get(username=username)
-    # print(profile.id)
     try:
         profile_details = Profile.get_by_id(profile.id)
     except:
@@ -73,10 +59,7 @@ def profile(request, username):
     title = f'@{profile.username} awwward projects and cover'
 
     return render(request, 'profile.html', locals())
-    '''
-    editing user profile fillform & submission
- 
-    '''
+  
 @login_required(login_url='/accounts/login/')
 def edit(request):
     profile = User.objects.get(username=request.user)
@@ -92,9 +75,6 @@ def edit(request):
         form = ProfileForm()
     return render(request, 'edit_profile.html', locals())
 
-    '''
-    logs out current user from account
-    '''
 def logout(request):
     return render(request, 'home.html')
 
