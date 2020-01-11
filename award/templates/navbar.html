@@ -1,0 +1,121 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <style>
+        html {
+            background-size: 100%;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+        }
+
+        nav{
+            position: fixed !important;
+            width:100% !important;
+        }
+
+        
+        li {
+            margin: 20px;
+        }
+
+        #submit {
+            padding: 20px;
+            background-color: #42AB9E;
+            margin-left: 60px;
+            position: relative;
+            right: 0%;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="">
+
+        <!-- ------------------------------------------------------------ -->
+        <!-- ------------------------------------------------------------ -->
+        <!-- ------------------------------------------------------------ -->
+        <!-- ------------------------------------------------------------ -->
+        <!-- ------------------------------------------------------------ -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Awwards</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto text-center">
+                    <li>
+                        <a href="{% url 'home_page' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto text-center">
+                    <li style="list-style: none;">
+                        <a href="/accounts/register/" style="color:black; font-size: 13px;">REGISTER /</a>
+                        <a class='btn btn-default' href="/accounts/login/"
+                            style="color:black; font-size: 13px;">LOGIN</a>
+                    </li>
+                </ul>
+                {% endif %}
+                <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="input">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+
+
+
+
+                <a href="{%url 'upload_project'%}" id="submit">submit your site</a>
+            </div>
+        </nav>
+
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+    </div>
+</body>
+
+</html>
