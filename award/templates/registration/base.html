@@ -15,8 +15,10 @@
   {%endif%}
 
   {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   {% endblock %}
 
 </head>
@@ -29,4 +31,5 @@
 
 
 </body>
+
 </html>

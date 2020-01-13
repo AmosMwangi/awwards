@@ -3,6 +3,8 @@
     HOME
 ---------------
 */
+
+
 #nav {
     background-image: url('https://assets.awwwards.com/awards/submissions/2019/12/5df97ffe7b0bf056006858.png');
     height: 85vh;
@@ -43,6 +45,24 @@
 }
 
 
+#vote {
+    border: 2px solid black;
+    padding: 10px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+#vote:hover {
+    background-color: rgb(8, 8, 8);
+    color: white;
+}
+
+
+
 
 /* 
 -----------------
@@ -65,23 +85,13 @@
 
         position: absolute;
         top: 150px;
-        right: 280px;
+        right: 340px;
         width: 200px;
         height: 120px;
     }
 
-    #reg-sign-btn {
-        padding: 10px;
-        width: 100px;
-        border: 2px solid black;
-        color: black;
-        border-radius: 50px;
-        margin-bottom: 20px;
-    }
-
-    #reg-sign-btn:hover {
-        background-color: black;
-        color: #fff;
+    #reg-form{
+        width: 300px;
     }
 }
 
@@ -95,10 +105,6 @@
         float: none;
     }
 
-    /* form {
-        width: 300px;
-        margin: 0 auto;
-    } */
 
     #left-reg {
         display: block !important;

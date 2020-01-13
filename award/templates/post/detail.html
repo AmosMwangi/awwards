@@ -1,0 +1,38 @@
+{%extends 'layout.html'%}
+{% load bootstrap4 %}
+{% block content %}
+{{block.super}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card" style="margin-top:10%;">
+
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="img-responsive" src="{{project.cover.url}}" alt="Card image cap" width="100%;"
+                        height="400px;">
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{project.project_name}}<i
+                            class="material-icons right">more_vert</i></span>
+                    <p style="margin-bottom: 2rem;">{{project.pub_date}}</p>
+                    <p><a href="{% url 'rate' project.id %}" id="vote">vote</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4" style="border-bottom: 2px solid grey;">Awward votes<i
+                            class="material-icons right">close</i></span>
+                    {% for item in rate %}
+                    <h6>Design:{{item.design}}</h6>
+                    <h6>Creativity: {{item.creativity}}</h6>
+                    <h6>Usability: {{item.usability}}</h6>
+                    <h6>Average: {{item.average}}</h6>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{% endblock %}

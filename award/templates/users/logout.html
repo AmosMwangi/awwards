@@ -1,5 +1,63 @@
-<div>
-    <p>You've logout.</p>
-    <p>Click here to login</p>
-    <a href="/accounts/login/">login</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<style>
+    body {
+        background-color: black !important;
+        /* color: white; */
+        height: 100vh;
+    }
+
+
+    #logout-card {
+        /* top: 50%; */
+        width: 400px;
+        margin-top: 20% !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        height: 130px;
+    }
+
+    #logout-btn {
+
+        padding: 8px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: 280px;
+        border: 2px solid black;
+        border-radius: 50px;
+        margin-bottom: 20px;
+        margin-top: 20em !important;
+        color: black;
+    }
+
+    #logout-btn:hover {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="container">
+
+        <div class="card" id="logout-card">
+            <div class="card-content">
+                <p>You've logout.</p>
+                <p style="margin-bottom:20px;">Click here to login</p>
+                <a href="/accounts/login/" id="logout-btn">login</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

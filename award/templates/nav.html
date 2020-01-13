@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         html {
             background-size: 100%;
         }
@@ -16,18 +21,26 @@
             transition: background-color .5s;
         }
 
-        nav{
-            position: fixed !important;
-            width:100% !important;
+        nav {
+            /* position: fixed !important; */
+            width: 100% !important;
+            height: 11vh !important;
+            background-color: black !important;
         }
 
-        
+
         li {
-            margin: 20px;
+            margin: 10px;
+        }
+
+        #l {
+            color: #000 !important;
+            text-decoration: none;
+            font-size: 16px;
         }
 
         #submit {
-            padding: 20px;
+            padding: 13px;
             background-color: #42AB9E;
             margin-left: 60px;
             position: relative;
@@ -36,6 +49,8 @@
             color: #fff;
             text-transform: uppercase;
             font-size: 14px;
+            float: right !important;
+            right: 0 !important;
         }
     </style>
 
@@ -62,14 +77,14 @@
                 {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto text-center">
                     <li>
-                        <a href="{% url 'home_page' %}">Home</a>
+                        <a href="{% url 'home' %}" id="l">Home</a>
                     </li>
                     <li>
-                        <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                        <a href="{% url 'profileupdate' %}" id="l">Edit Profile</a>
                     </li>
 
                     <li>
-                        <a href="{% url 'logout' %}">Logout</a>
+                        <a href="{% url 'logout' %}" id="l">Logout</a>
                     </li>
                 </ul>
                 {% else %}
@@ -81,8 +96,9 @@
                     </li>
                 </ul>
                 {% endif %}
-                <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="input">
+                <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'searchpost' %}">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                        id="input">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
 
@@ -90,7 +106,7 @@
 
 
 
-                <a href="{%url 'upload_project'%}" id="submit">submit your site</a>
+                <a href="{%url 'createproject'%}" id="submit">submit your site</a>
             </div>
         </nav>
 
