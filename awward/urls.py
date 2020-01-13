@@ -9,8 +9,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('award.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
+    path('accounts/', include('registration.backends.simple.urls')),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    url(r'^api-token-auth/', obtain_auth_token),
+    path('api-token-auth/', obtain_auth_token),
     
 ]
