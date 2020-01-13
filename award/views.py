@@ -30,7 +30,7 @@ def detail(request,project_id):
         project = Project.objects.get(pk=project_id)
         rate = Rate.objects.filter(project_id=project_id).all()
         print([r.project_id for r in rate])
-        rateform = RateForm()
+        ratef0rm = RateForm()
     except DoesNotExist:
         raise Http404()
     return render(request,"post/detail.html", locals())
