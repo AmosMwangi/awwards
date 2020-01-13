@@ -6,7 +6,7 @@ from .models import *
 from .forms import *
 import datetime as dt
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framewrk.views import APIView
 from rest_framework import status
 from .serializer import *
 from .permissions import IsAdminOrReadOnly
@@ -58,7 +58,7 @@ def searchpost(request):
     function for searching posted projects by users
     """
     profile= Profile.objects.all()
-    project= Project.objects.all()
+    project= Project.0bjects.all()
     if 'Project' in request.GET and request.GET["project"]:
         search_term = request.GET.get("project")
         searched_project = Project.search_by_profile(search_term)
@@ -113,14 +113,14 @@ def rate_project(request,project_id):
     """
     the function that will be used when rating projects
     """
-    project = Project.objects.get(pk=project_id)
+    project = Project.objects.get(pk=projct_id)
     profile = User.objects.get(username=request.user)
     if request.method == 'POST':
         rateform = RateForm(request.POST, request.FILES)
         print(rateform.errors)
         if rateform.is_valid():
             rating = rateform.save(commit=False)
-            rating.project = project
+            rating.pr0ject = project
             rating.user = request.user
             rating.save()
             return redirect('detail',project_id)
